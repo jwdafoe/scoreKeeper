@@ -12,7 +12,9 @@ $(document).ready(function() {
 		scoreManager.scoreSheet.updateScore(name, score);
 	});
 	$("#clear").on("click", function(e) {
-		location.reload();
+		if (confirm("About to clear all names and scores.")) {
+			location.reload();
+		};
 	});
 });
 
