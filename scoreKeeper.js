@@ -11,6 +11,9 @@ $(document).ready(function() {
 		const score = Number(prompt("Add to " + name + "'s score:"));
 		scoreManager.scoreSheet.updateScore(name, score);
 	});
+	$("#clear").on("click", function(e) {
+		location.reload();
+	});
 });
 
 //DECLARE GLOBAL MODULES IN THIS SECTION
@@ -76,4 +79,4 @@ const manageUiDisplay = (function() { //IMEDIATELY INVOKED MODULE THAT EXPOSES '
 })();
 
 //MAIN EXECUTION BEGINS HERE
-document.getElementById('pageTitle').innerHTML += ' v0.4';
+document.getElementById('pageTitle').innerHTML += ' v0.6';
