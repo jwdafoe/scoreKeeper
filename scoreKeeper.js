@@ -8,7 +8,7 @@ $(document).ready(function() {
 	});
 	$("#names").on("click", function(e) {
 		const name = e.target.textContent;
-		const score = Number(prompt("Add to " + name + "'s score:"));
+		const score = Number(prompt("Add to " + name + "'s score:", "0"));
 		scoreManager.scoreSheet.updateScore(name, score);
 	});
 	$("#clear").on("click", function(e) {
