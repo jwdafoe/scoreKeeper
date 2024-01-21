@@ -2,9 +2,12 @@
 
 //JQUERY EVENT HANDLERS
 $(document).ready(function() {
+	$("#instructions").hide();
+
 	$("#playerForm").on("submit", function(e) {
 		scoreManager.scoreSheet.addPlayer($("#newPlayer")[0].value);
 		$("#newPlayer")[0].value = null;
+		$("#instructions").show();
 	});
 	$("#names").on("click", function(e) {
 		const name = e.target.textContent;
@@ -81,4 +84,4 @@ const manageUiDisplay = (function() { //IMEDIATELY INVOKED MODULE THAT EXPOSES '
 })();
 
 //MAIN EXECUTION BEGINS HERE
-document.getElementById('pageTitle').innerHTML += ' v0.6';
+document.getElementById('pageTitle').innerHTML += ' v0.7';
