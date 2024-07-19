@@ -2,24 +2,33 @@
 
 //JQUERY EVENT HANDLERS
 $(document).ready(function() {
-	$("#instructions").hide();
+	$("#instructions, #updateForm").hide();
 
 	$("#playerForm").on("submit", function(e) {
-		scoreManager.scoreSheet.addPlayer($("#newPlayer")[0].value);
-		$("#newPlayer")[0].value = null;
+		scoreManager.scoreSheet.addPlayer($("#newPlayer").val());
 		$("#instructions").show();
+		$("#playerForm")[0].reset();
 	});
 	$("#names").on("click", function(e) {
-		const name = e.target.textContent;
-		const score = Number(prompt("Add to " + name + "'s score:", "0"));
-		scoreManager.scoreSheet.updateScore(name, score);
+		name = e.target.textContent;
+		$("#instructions, #updateForm, .table").toggle();
+		$("#plusScore").focus();
 	});
 	$("#clear").on("click", function(e) {
 		if (confirm("About to clear all names and scores.")) {
 			location.reload();
 		};
 	});
+	$("#updateForm").on("submit", function(e) {
+		scoreManager.scoreSheet.updateScore(name, Number($("#plusScore").val()));
+		$("#instructions, #updateForm, .table").toggle();
+		$("#updateForm")[0].reset();
+		name = null; //RESET THE GLOBAL VARIABLE
+	});
 });
+
+//DECLARE GLOBAL VARIABLES IN THIS SECTION
+var name; //VARIABLE TO HOLD THE CURRENT PLAYERNAME
 
 //DECLARE GLOBAL MODULES IN THIS SECTION
 const scoreManager = (function() { //IMEDIATELY INVOKED MODULE THAT EXPOSES THE 'scoreSheet'
@@ -53,7 +62,6 @@ const scoreManager = (function() { //IMEDIATELY INVOKED MODULE THAT EXPOSES THE 
 })();
 
 const manageUiDisplay = (function() { //IMEDIATELY INVOKED MODULE THAT EXPOSES 'updateNames' & 'updateScores'
-	//const nameField = document.getElementById('newPlayer'); //REFERENCE THE NEW PLAYER INPUT FIELD
 	const namesRow = document.getElementById('names'); //REFERENCE THE TABLE HEADER HOLDING THE NAMES
 	const scoresRow = document.getElementById('scores'); //REFERENCE THE TABLE BODY HOLDING THE SCORES
 
@@ -84,4 +92,4 @@ const manageUiDisplay = (function() { //IMEDIATELY INVOKED MODULE THAT EXPOSES '
 })();
 
 //MAIN EXECUTION BEGINS HERE
-document.getElementById('pageTitle').innerHTML += ' v0.7';
+document.getElementById('pageTitle').innerHTML += ' v0.9';

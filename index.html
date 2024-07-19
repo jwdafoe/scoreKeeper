@@ -17,9 +17,13 @@
 
 			<form id="playerForm" action="javascript:void (0);">
 				<div class="row">
-					<div class="col"><input type="text" id="newPlayer" class="form-control" placeholder="Player name"></div> 
-					<div class="col"><button type="submit" class="btn btn-primary btn-sm">Add</button></div>
-					<div class="col"><button type="button" class="btn btn-danger btn-sm" id="clear">Clear all</button></div>
+					<div class="col input-group mb-3">
+						<input type="text" id="newPlayer" class="form-control" placeholder="Player name">
+						<div class="import-group-append">
+							<button type="submit" class="btn btn-primary">Add</button>
+						</div>
+					</div>
+					<div class="col"><button type="button" class="btn btn-danger" id="clear">Clear all</button></div>
 				</div>
 			</form>
 			
@@ -33,6 +37,17 @@
 					<tr id="scores"> </tr>
 				</tbody>
 			</table>
+		</div>
+		
+		<div class="container">
+			<form id="updateForm" action="javascript:void (0);">
+				<div class="input-group mb-3">
+					<input type="number" id="plusScore" class="form-control">
+					<div class="input-group-append">
+						<button type="submit" class="btn btn-success">Add</button>
+					</div>
+				</div>
+			</form>
 		</div>
 		
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
