@@ -11,6 +11,7 @@ $(document).ready(function() {
 	});
 	$("#names").on("click", function(e) {
 		name = e.target.textContent;
+		$("#playerName").text(name);
 		$("#instructions, #updateForm, .table").toggle();
 		$("#plusScore").focus();
 	});
@@ -92,4 +93,4 @@ const manageUiDisplay = (function() { //IMEDIATELY INVOKED MODULE THAT EXPOSES '
 })();
 
 //MAIN EXECUTION BEGINS HERE
-document.getElementById('pageTitle').innerHTML += ' v0.9';
+document.getElementById('pageTitle').innerHTML += ' v1.0';
